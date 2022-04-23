@@ -1,9 +1,11 @@
 {
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.25",
     "node-sass": "npm:dart-sass@1.25.0"
   },
   "dependencies": {
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.3.5"
   }
 }
