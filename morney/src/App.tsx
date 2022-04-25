@@ -7,10 +7,10 @@ import {
   Redirect
 } from "react-router-dom";
 
-import Money from "./views/money";
+import Money from "./views/Money";
 import NoMatch from "./views/NoMatch";
-import Statistics from "./views/statistics";
-import Tags from "./views/tags";
+import Statistics from "./views/Statistics";
+import Tags from "./views/Tags";
 
 
 function App() {
