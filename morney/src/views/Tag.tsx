@@ -6,6 +6,8 @@ import Icon from "../components/Icon";
 import { Button } from "../components/Button";
 import styled from "styled-components";
 import { Input } from "../components/Input";
+import { Center } from "../components/Center";
+import { Space } from "../components/Space";
 
 type Params = {
     id: string
@@ -20,6 +22,11 @@ const Topbar = styled.header`
     background-color:white;
 `
 
+const InputWrapper = styled.div`
+    background:white;
+    padding:0 16px;
+
+`
 
 
 const Tag: React.FC = () => {
@@ -35,15 +42,21 @@ const Tag: React.FC = () => {
                 <Icon />
             </Topbar>
 
-            <div>
-                <Input>
-                    {/* <span>标签名</span> */}
-                    {/* <input type="text" placeholder="标签名" /> */}
-                </Input>
-            </div>
-            <div>
+            <Space />
+            <Space />
+
+
+            <InputWrapper>
+                <Input label="标签名" type="text" placeholder="标签名" value={tag.name} />
+            </InputWrapper>
+
+            <Space />
+            <Space />
+            <Space />
+
+            <Center>
                 <Button>删除标签</Button>
-            </div>
+            </Center>
         </Layout>
     );
 };
