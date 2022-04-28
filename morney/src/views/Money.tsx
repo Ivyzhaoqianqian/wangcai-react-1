@@ -5,7 +5,7 @@ import { NoteSection } from "./Money/NoteSection";
 import { CategorySection } from "./Money/CategorySection";
 import { NumberPadSection } from "./Money/NumberPadSection";
 import styled from "styled-components";
-import { type } from "os";
+
 
 
 const MyLayout = styled(Layout)`
