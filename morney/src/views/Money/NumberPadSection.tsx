@@ -5,24 +5,26 @@ import { generateOutput } from "./NumberPadSection/generateOutput";
 import { Wrapper } from "./NumberPadSection/Wrapper";
 
 type Props = {
-  value: number;
+  value: string;
   onChange: (value: number) => void;
   onOk?: () => void;
 }
 
 
 const NumberPadSection: React.FC<Props> = (props) => {
-  const output = props.value.toString()
+  // const output = props.value.toString()
+  const [output, _setOutput] = useState(props.value.toString())
   const setOutput = (output: string) => {
-    let value
+    let newOutput: string;
     if (output.length > 16) {
-      value = parseFloat(output.slice(0, 16));
+      newOutput = output.slice(0, 16);
     } else if (output.length === 0) {
-      value = 0;
+      newOutput = '0';
     } else {
-      value = parseFloat(output)
+      newOutput = output
     }
-    props.onChange(value);
+    _setOutput(newOutput)
+    props.onChange(parseFloat(newOutput));
   };
   const onClickButtonWrapper = (e: React.MouseEvent) => {
     const text = (e.target as HTMLButtonElement).textContent;

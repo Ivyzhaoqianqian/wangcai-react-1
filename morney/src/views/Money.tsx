@@ -20,7 +20,8 @@ const defaultFormData = {
     tagIds: [] as number[],
     note: '',
     category: '-' as Category,
-    amount: 0
+    amount: 0,
+
 }
 
 function Money() {
@@ -33,14 +34,16 @@ function Money() {
             ...selected,
             ...obj
         });
-        const submit = () => {
-            addRecord(selected);
+    }
+    const submit = () => {
+        if (addRecord(selected)) {
             alert('保存成功')
             setSelected(
                 defaultFormData
             )
-        }
+        };
     }
+
     return (
         <MyLayout>
             <TagsSection value={selected.tagIds}
@@ -49,11 +52,12 @@ function Money() {
                 onChange={(note) => onChange({ note })} />
             <CategorySection value={selected.category}
                 onChange={(category) => { onChange({ category }) }} />
-            <NumberPadSection value={selected.amount}
-                onChange={(amount) => { onChange({ amount }) }}
-                onOk={() => { }} />
+            <NumberPadSection value={selected.amount.toString()}
+                onChange={amount => { onChange({ amount }) }}
+                onOk={submit} />
         </MyLayout>
     );
 };
+
 
 export default Money;
