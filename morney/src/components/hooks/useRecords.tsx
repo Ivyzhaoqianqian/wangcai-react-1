@@ -1,4 +1,4 @@
-import { type } from "os"
+
 import { useEffect, useState } from "react"
 import { useUpdate } from "./useUpdate"
 
@@ -23,9 +23,10 @@ export const useRecords = () => {
 
     }, [records]);
 
-    const addRecord = (newrecord: RecordItem) => {
+    const addRecord = (newrecord: newRecordItem) => {
         if (newrecord.amount <= 0) {
             alert('请输入金额')
+            return false
         };
         if (newrecord.tagIds.length === 0) {
             alert('请选择标签');

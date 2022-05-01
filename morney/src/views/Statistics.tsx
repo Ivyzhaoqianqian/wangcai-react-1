@@ -10,6 +10,25 @@ const CategoryWrapper = styled.div`
     background-color:white;
 `
 
+const Item = styled.div`
+    display:flex;
+    justify-content:space-between;
+    background-color:white;
+    font-size:18px;
+    line-height:20px;
+    padding:10px 16px;
+    > .note{
+        margin-right:auto;
+        margin-left:16px;
+        color:#999;
+    }
+`
+const Header = styled.h3`
+    font-size:18px;
+    line-height:20px;
+    padding:10px 16px;
+`
+
 function Statistics() {
     const [category, setCategory] = useState<'-' | '+'>('-')
     const { records } = useRecords()
@@ -23,19 +42,19 @@ function Statistics() {
 
             <div>
                 {records.map(r => {
-                    return <div>
-                        {r.tagIds.map(tagId => <span>{getName(tagId)}</span>)}
-                        <hr />
+                    return <Item>
+                        <div className="tags oneLine">
+                            {r.tagIds.map(tagId => <span>{getName(tagId)}</span>)}
+                            <hr />
 
-                        {r.amount}
-                        <hr />
-                        {day(r.createAt).format('YYYY年MM月DD日')}
+                            {r.amount}
+                            <hr />
+                            {day(r.createAt).format('YYYY年MM月DD日')}
 
-                    </div>
+                        </div>
+                    </Item>
                 })}
             </div>
-
-
         </Layout>
     );
 }
